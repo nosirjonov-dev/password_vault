@@ -6,6 +6,7 @@ import 'models/password_entry.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/lock_screen.dart';
 import 'screens/home_screen.dart';
+import 'providers/auth_provider.dart'; // 👈 MUHIM
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Password Vault',
       theme: ThemeData(
         useMaterial3: true,
@@ -31,7 +33,7 @@ class MyApp extends ConsumerWidget {
       routes: {
         '/onboarding': (_) => OnboardingScreen(),
         '/lock': (_) => LockScreen(),
-        '/home': (_) => HomeScreen(),
+        '/home': (_) => const HomeScreen(),
       },
     );
   }
